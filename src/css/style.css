@@ -36,3 +36,12 @@ h3 {
 	font-weight: 400;
 	font-style: normal;
 }
+
+.map-embed {
+	width: 100%;
+	border: 0;
+	height: 60vw;
+	max-width: 960px;
+	margin: 0 auto;
+	display: block;
+}
