@@ -10,6 +10,10 @@ primary color variable below.
 	--color-secondary: #c00;
 }
 
+html {
+	font-size: 16px;
+}
+
 body {
 	font-family: "Noto Sans", sans-serif;
 	font-optical-sizing: auto;
@@ -17,16 +21,87 @@ body {
 	font-style: normal;
 	font-variation-settings:
 		"wdth" 100;
+	margin: 0;
+	padding: 0;
+	font-size: 1.2rem;
 }
 
-nav {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+a {
+	color: #B73757;
+}
+
+.nav-wrapper {
+	background-color: #284320;
+	color: #fff;
+}
+
+div.goog-te-gadget,
+div.goog-te-gadget .VIpgJd-ZVi9od-l4eHX-hSRGPd, 
+div.goog-te-gadget .VIpgJd-ZVi9od-l4eHX-hSRGPd:link, 
+div.goog-te-gadget .VIpgJd-ZVi9od-l4eHX-hSRGPd:visited, 
+div.goog-te-gadget .VIpgJd-ZVi9od-l4eHX-hSRGPd:hover, 
+div.goog-te-gadget .VIpgJd-ZVi9od-l4eHX-hSRGPd:active {
+	color: #fff;
+	font-weight: 400;
+	font-size: 11px;
+}
+
+.content-container {
+	max-width: 1536px;
+	margin: 0 auto;
+	padding: 2.5vw 10vw;
+}
+
+.nav {
+	display: flex;
+	margin: 0;
+	padding-top: 2vw;
+	padding-bottom: 2vw;
 	align-items: center;
+	gap: 30px;
+}
+
+.nav a {
+	font-weight: 700;
+	font-style: normal;
+	font-size: 0.9em;
+	color: #F9DF90;
+	text-decoration: none;
+	padding: 0.25em 0.5em;
+	border-bottom: 1px solid transparent;
+	transition: all .2s ease-in;
+}
+
+nav a:hover {
+	color: #fcebb1;
+	border-bottom: 1px solid currentColor;
+}
+
+nav .active {
+	color: #fff;
+	border-bottom: 1px solid currentColor;
+}
+
+img {
+	display: block;
 }
 
 .logo {
-	grid-column: span 2;
+	width: 300px;
+}
+
+#google_translate_element {
+	margin-left: auto;
+}
+
+.header-background {
+	background-image: url(../images/pexels-corin-1105019.jpg);
+	background-size: cover;
+	background-position: 25% 80%;
+}
+
+h1 {
+	font-size: 3rem;
 }
 
 h1,
@@ -35,6 +110,7 @@ h3 {
 	font-family: "Madimi One", sans-serif;
 	font-weight: 400;
 	font-style: normal;
+	margin-top: 0;
 }
 
 .map-embed {
@@ -44,4 +120,31 @@ h3 {
 	max-width: 960px;
 	margin: 0 auto;
 	display: block;
+}
+
+footer {
+	background-color: #284320;
+	color: #fff;
+}
+
+footer h2 {
+	color: #F9DF90;
+}
+
+input,
+button {
+	font-size: inherit;
+	font-family: inherit;
+	border: none;
+	border-radius: 2px;
+	padding: 0.25em 0.75em;
+}
+
+footer button {
+	background-color: #F9DF90;
+	border: none;
+}
+
+footer .content-container {
+	padding: 5vw 10vw;
 }
