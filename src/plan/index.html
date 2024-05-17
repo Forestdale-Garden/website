@@ -17,17 +17,25 @@
 </head>
 
 <body>
-	<nav>
-		<a href="/" class="logo"><img src="../images/logo.svg" alt="Forestdale Neighborhood Garden" /></a>
-		<a href="/plan">Our Plan</a>
-		<a href="/news">News</a>
-		<a href="/faq">FAQs</a>
-		<a href="/volunteer">Volunteer</a>
-		<div id="google_translate_element"></div>
-	</nav>
+    <div class="nav-wrapper">
+        <nav class="content-container nav">
+            <a href="/" class="logo"><img src="../images/logo-light.svg" alt="Forestdale Neighborhood Garden Project" /></a>
+            <a href="/plan">Our Plan</a>
+            <a href="/news">News</a>
+            <a href="/faq">FAQs</a>
+            <a href="/volunteer">Volunteer</a>
+            <a href="/leadership">Leadership</a>
+            <div id="google_translate_element"></div>
+        </nav>
+    </div>
 
 	<main>
-		<section>
+		<header class="header-background">
+            <div class="content-container">
+                <h1>Plan</h1>
+            </div>
+        </header>
+		<section class="content-container">
 			<h1>Proposal</h1>
 			<ol>
 				<li>Identify a space</li>
@@ -45,6 +53,26 @@
 
 		</section>
 	</main>
+	
+	<footer>
+        <div class="content-container">
+            <h2>Join our email list</h2>
+            <p>Stay informed about upcoming meetings and how the project is progressing!</p>
+            <form
+            accept-charset="UTF-8"
+            action="https://www.formbackend.com/f/831c5ba940f37338"
+            method="POST"
+            >
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+    
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+    
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </footer>
 
 	<script type="text/javascript">
 		function googleTranslateElementInit() {
