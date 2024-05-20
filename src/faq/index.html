@@ -31,13 +31,35 @@
 	</div>
 
 	<main>
-		<section class="content-container">
-			<h1>Frequently Asked Questions</h1>
+		<header class="header-background">
+			<div class="content-container">
+				<h1>Frequently Asked Questions</h1>
+			</div>
+		</header>
+		<section class="content-container content-container-narrow">
+			<details>
+				<summary>Where will the garden be located?</summary>
+				<p>We hope to grow the garden on a <a
+						href="https://maldenma.mapgeo.io/datasets/committed?abuttersDistance=500&latlng=42.43718%2C-71.05888&previewId=091%20776%20612&share=2e0a64c0-85aa-4595-82ac-f9eb54722ab5&zoom=19&sidebar=false">strip
+						of city-owned property on Goodwin Avenue</a>. The area we are hoping to
+					use for the garden is the sunny area closest to 20 Goodwin Avenue. The shaded areas aren't as suitable
+					for planting, and in some cases, are very close to homes where it wouldn't make as much sense to have
+					garden activity.</p>
+			</details>
 			<details>
 				<summary>Who will maintain the garden?</summary>
-				<p>Ashley Kolodziej has volunteered to be garden coordinator. However, great gardens take a village! We are
+				<p><a href="../leadership/">Ashley Kolodziej</a> has volunteered to be garden coordinator. She lives next to
+					the proposed garden area and
+					is able to keep an eye on simple day to day needs. However, great gardens take a village! We are
 					actively looking for additional volunteers to help promote, maintain, and build the garden. Please <a
-						href="../volunteer/">sign up as a volunteer</a> if you're interested in helping out.</p>
+						href="../volunteer/index.html#volunteerform">sign up as a volunteer</a> if you're interested in
+					helping out.</p>
+			</details>
+			<details>
+				<summary>What stage is the garden at?</summary>
+				<p>We're in the early stages of planning now, and focusing on gathering input and volunteers to make this a
+					reality. You can help now by attending upcoming meetings or signing up to help with our leadership! <a
+						href="../volunteer/">Learn more about volunteering</a> if you want to help now.</p>
 			</details>
 			<details>
 				<summary>Will the garden attract pests, such as rats?</summary>
@@ -67,8 +89,33 @@
 					incorporate techniques that will reduce water usage and maintainance requirements, such as rain barrels
 					and olla watering.</p>
 			</details>
+			<details>
+				<summary>Where can I find details about upcoming meetings?</summary>
+				<p>You can join our email list below for the most up to date information. We'll also publicize upcoming
+					meetings on Facebook and Reddit.</p>
+			</details>
+			<details>
+				<summary>How can I sign up to help?</summary>
+				<p>We need people with all kinds of skills to help make this idea a reality! Check out our <a
+						href="../volunteer/">volunteer page</a> to see all the opportunities and sign up.</p>
+			</details>
 		</section>
 	</main>
+	<footer>
+		<div class="content-container">
+			<h2>Join our email list</h2>
+			<p>Stay informed about upcoming meetings and how the project is progressing!</p>
+			<form name="emaillist" method="POST" netlify>
+				<label for="name">Name</label>
+				<input type="text" id="name" name="name" required>
+
+				<label for="email">Email</label>
+				<input type="email" id="email" name="email" required>
+
+				<button type="submit">Submit</button>
+			</form>
+		</div>
+	</footer>
 
 	<script type="text/javascript">
 		function googleTranslateElementInit() {

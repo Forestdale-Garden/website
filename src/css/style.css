@@ -145,7 +145,8 @@ h3 {
 }
 
 .two-column h2,
-.two-column p {
+.two-column p,
+.two-column div {
 	grid-column: span 2;
 }
 
@@ -170,6 +171,61 @@ h3 {
 	display: block;
 }
 
+.form-volunteer {
+	background-color: #e7f2d1;
+	padding: 2em;
+}
+
+.form-volunteer button {
+	background-color: #3c702c;
+	color: #fff;
+	font-weight: 700;
+}
+
+.form-stacked label,
+.form-stacked fieldset {
+	display: block;
+	font-weight: 700;
+	font-size: 0.85em;
+	margin-bottom: 0.5em;
+}
+
+.form-stacked fieldset {
+	border: none;
+	padding: 0;
+	padding-top: 0.5em;
+	margin-bottom: 1em;
+}
+
+.form-stacked input {
+	border: 1px solid #ccc;
+	margin-bottom: 1em;
+}
+
+.form-stacked div {
+	display: flex;
+	align-items: flex-start;
+}
+
+.form-stacked div label {
+	font-weight: 400;
+}
+
+details {
+	padding-left: 2em;
+}
+
+summary {
+	font-weight: 700;
+	margin-bottom: 1em;
+	margin-left: -2em;
+	color: #284320;
+}
+
+summary:hover {
+	cursor: pointer;
+}
+
 footer {
 	background-color: #284320;
 	color: #fff;
@@ -191,6 +247,7 @@ button {
 footer button {
 	background-color: #F9DF90;
 	border: none;
+	font-weight: 700;
 }
 
 footer .content-container {
