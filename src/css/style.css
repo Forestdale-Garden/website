@@ -36,10 +36,10 @@ a {
 }
 
 div.goog-te-gadget,
-div.goog-te-gadget .VIpgJd-ZVi9od-l4eHX-hSRGPd, 
-div.goog-te-gadget .VIpgJd-ZVi9od-l4eHX-hSRGPd:link, 
-div.goog-te-gadget .VIpgJd-ZVi9od-l4eHX-hSRGPd:visited, 
-div.goog-te-gadget .VIpgJd-ZVi9od-l4eHX-hSRGPd:hover, 
+div.goog-te-gadget .VIpgJd-ZVi9od-l4eHX-hSRGPd,
+div.goog-te-gadget .VIpgJd-ZVi9od-l4eHX-hSRGPd:link,
+div.goog-te-gadget .VIpgJd-ZVi9od-l4eHX-hSRGPd:visited,
+div.goog-te-gadget .VIpgJd-ZVi9od-l4eHX-hSRGPd:hover,
 div.goog-te-gadget .VIpgJd-ZVi9od-l4eHX-hSRGPd:active {
 	color: #fff;
 	font-weight: 400;
@@ -86,6 +86,7 @@ nav .active {
 
 img {
 	display: block;
+	max-width: 100%;
 }
 
 .logo {
@@ -132,6 +133,16 @@ h3 {
 	font-weight: 400;
 	font-style: normal;
 	margin-top: 0;
+}
+
+.two-column {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.two-column h2,
+.two-column p {
+	grid-column: span 2;
 }
 
 .map-embed {
