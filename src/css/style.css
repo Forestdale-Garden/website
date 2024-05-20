@@ -54,6 +54,10 @@ div.goog-te-gadget .VIpgJd-ZVi9od-l4eHX-hSRGPd:active {
 	z-index: 2;
 }
 
+.content-container-narrow {
+	max-width: 768px;
+}
+
 .nav {
 	display: flex;
 	margin: 0;
@@ -143,6 +147,18 @@ h3 {
 .two-column h2,
 .two-column p {
 	grid-column: span 2;
+}
+
+.pubdate::before {
+	content: "Published on: ";
+}
+
+.pubdate {
+	display: inline-block;
+	font-size: 0.6875em;
+	background: #F9DF90;
+	padding: 0.25em 0.5em;
+	margin-bottom: 0.75em;
 }
 
 .map-embed {
