@@ -35,47 +35,109 @@
 				<h1>Volunteer</h1>
 			</div>
 		</header>
-		<section class="content-container">
+		<section class="content-container content-container-narrow">
 			<section class="two-column">
-				<h2>Volunteer with us!</h2>
-				<p>Love the idea of contributing to the garden? We need help of all kinds! No matter what your skillset is,
-					there are opportunities available for you to help.</p>
+				<div>
+					<h2>Volunteer with us!</h2>
+					<p>Love the idea of contributing to the garden? We need help of all kinds! No matter what your skillset
+						is,
+						there are opportunities available for you to help. Not only will you get to contribute to a fun
+						project - you'll also learn new skills and make connections in our neighborhood. Here are just a few
+						ideas to get your imagination
+						started:</p>
+				</div>
 				<img src="../images/cactus.png"
 					alt="A cute illustration of a young cactus with a flower in a small pot, smiling and reaching up" />
 			</section>
-			<aside>
-				<h3>Ashley Kolodziej</h3>
-				<h4>Project and Garden Lead</h4>
-				<p>Ashley Kolodziej is a part-time professor at Boston University and full-time design systems manager at
-					Moody's Analytics. She has been gardening since she was a child, when her dad taught her how to grow
-					potatoes, zucchini, pumpkins, and tomatoes. As a hobbyist, her gardening experience includes hydroponics,
-					raised beds, chemical-free pest and weed management, seed saving, low-water techniques, propagation, and
-					grafting with a focus on edible plants. A former creative director and manager, she also brings project
-					planning and leadership experience to the table, passion and energy to motivate people to action, and an
-					eye towards design, color, and beauty.</p>
-			</aside>
-			<blockquote>
-				I'm excited to show people how beautiful and productive even small spaces like this can be, and pass on the
-				gardening knowledge my dad gave me. My dream is to give neighbors in the area a space to work together to
-				express their voices and interests through plants. I love cooking, so I would love to see edible plants like
-				herbs. Some neighbors I've talked to are passionate about supporting local pollinators and growing flowers.
-				Plants can even express our personal history and culture, from the herbs we use in our everyday cooking to
-				the different gardening and growth practices we use across cultures, such as <a
-					href="https://en.wikipedia.org/wiki/Bonsai_cultivation_and_care">bonsai</a> and <a
-					href="https://en.wikipedia.org/wiki/Olla">ollas</a>. It's no surprise to me how closely intertwined
-				gardening practices are with art forms. This small space can represent us and help us learn more about each
-				other, and the best part is that it can grow and change over time, just like our neighborhood does.
-			</blockquote>
-			<aside>
-				<h3>Ari Taylor</h3>
-				<h4>Ward 5 City Councillor</h4>
-				<p><a href="https://www.cityofmalden.org/directory.aspx?EID=307">Ari Taylor</a> is the Malden Ward 5 City
-					Councillor and an active supporter and advocate for community-led projects. As a lifelong resident of
-					Ward 5, Ari has been a dedicated community volunteer in Malden for more than 30 years. She ensures
-					residents' voices are heard and that Ward 5 gets the resources it needs, and works to strengthen our
-					sense of community by hosting neighborhood social events, ward meetings and office hours, and maintaining
-					the <a href="https://www.maldenward5.com/">Malden Ward 5 website</a> so residents can stay informed.</p>
-			</aside>
+			<section>
+				<ul>
+					<li><strong>No green thumb?</strong> No problem! Join our leadership team and attend planning meetings.
+						Successful gardens need people who can plan, direct, and help make decisions!</li>
+					<li><strong>Love gardening and landscaping?</strong> Help us plan and select plants that meet our
+						neighborhood needs! We'll need lots of help with this for our first year, and after that, we'll want
+						to decide on new annuals each spring.</li>
+					<li><strong>Do you have a strong cultural connection with herbs, culinary, or gardening?</strong> Share
+						your knowledge! One of the beautiful things about this small space is that we can use it to get to
+						know each other better and honor Malden's rich, multicultural population. Let us know what plants or
+						herbs represent you, and help us develop
+						educational content around them for our website. It can be as simple as a recipe or as much as a
+						workshop. Choose what works for you.</li>
+					<li><strong>Do you have tools?</strong> You might like to help build! As we get closer to building the
+						garden, we will need folks with tools and woodworking skills to help us create raised garden bed kits.
+						We'll provide the materials, plans, and music. Your skills help us keep costs down for the whole
+						neighborhood.</li>
+					<li><strong>Not a fan of saws?</strong> After kits are done, we'll need lots of help to put
+						together and fill garden beds. Learn a bit about woodworking without having to deal with saws at a bed
+						kit building volunteer event!</li>
+					<li><strong>Looking for a low-commitment, family-friendly activity?</strong> Join us for one of our
+						weekly maintenance meetups! You'll get a quick tour of the garden plants, tips for care, and the
+						opportunity to take home seasonal herbs and fresh flowers in exchange for your hard work weeding,
+						fertilizing, and watering the plants.</li>
+					<li><strong>Just want to learn a bit about gardening?</strong> After the garden is ready, we'll be able
+						to create self-guided care activities for the garden, ranging from learning how to test if the soil
+						needs water to how to identify common weeds amongst our plants. This gives everyone a quiet option for
+						enjoying and caring for the garden on their own time. A great option for those who don't have their
+						own land, but want to practice or learn the hobby!</li>
+				</ul>
+			</section>
+			<section class="form-volunteer" id="volunteerform">
+				<h2>Sign up to volunteer</h2>
+				<p>We need everyone we can get! Sign up and let us know what you can contribute to the garden. We're excited
+					to get to know you better through gardening!</p>
+				<form class="form-stacked" name="volunteer" method="POST" netlify>
+					<label for="firstname">First Name</label>
+					<input type="text" id="firstname" name="firstname" required>
+					<label for="lastname">Last Name</label>
+					<input type="text" id="lastname" name="lastname" required>
+					<label for="email">Email</label>
+					<input type="email" id="email" name="email" required>
+					<fieldset>
+						<legend>What are you interested in?</legend>
+						<div>
+							<input type="checkbox" id="leadership" name="interest" />
+							<label for="leadership">Joining the leadership team</label>
+						</div>
+						<div>
+							<input type="checkbox" id="attending" name="interest" />
+							<label for="attending">Attending planning meetings regularly</label>
+						</div>
+						<div>
+							<input type="checkbox" id="plantplanning" name="interest" />
+							<label for="plantplanning">Plant selection and planning</label>
+						</div>
+						<div>
+							<input type="checkbox" id="education" name="interest" />
+							<label for="education">Developing educational content</label>
+						</div>
+						<div>
+							<input type="checkbox" id="bedkits" name="interest" />
+							<label for="bedkits">Creating garden bed kits (requires a saw)</label>
+						</div>
+						<div>
+							<input type="checkbox" id="bedbuild" name="interest" />
+							<label for="bedbuild">Building garden bed kits (no saws required)</label>
+						</div>
+						<div>
+							<input type="checkbox" id="planting" name="interest" />
+							<label for="planting">Planting the garden</label>
+						</div>
+						<div>
+							<input type="checkbox" id="maintenance" name="interest" />
+							<label for="maintenance">Maintaining the garden as a group</label>
+						</div>
+						<div>
+							<input type="checkbox" id="selfguided" name="interest" />
+							<label for="selfguided">Self-guided garden maintenance on your schedule</label>
+						</div>
+						<div>
+							<input type="checkbox" id="other" name="interest" />
+							<label for="other">Other (please email us at forestdalecommunitygarden@gmail.com to let us know
+								what you want to do!)</label>
+						</div>
+					</fieldset>
+					<button type="submit">Sign Up</button>
+				</form>
+			</section>
 		</section>
 	</main>
 	<footer>

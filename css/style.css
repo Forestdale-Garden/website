@@ -54,6 +54,10 @@ div.goog-te-gadget .VIpgJd-ZVi9od-l4eHX-hSRGPd:active {
 	z-index: 2;
 }
 
+.content-container-narrow {
+	max-width: 768px;
+}
+
 .nav {
 	display: flex;
 	margin: 0;
@@ -141,8 +145,21 @@ h3 {
 }
 
 .two-column h2,
-.two-column p {
+.two-column p,
+.two-column div {
 	grid-column: span 2;
+}
+
+.pubdate::before {
+	content: "Published on: ";
+}
+
+.pubdate {
+	display: inline-block;
+	font-size: 0.6875em;
+	background: #F9DF90;
+	padding: 0.25em 0.5em;
+	margin-bottom: 0.75em;
 }
 
 .map-embed {
@@ -152,6 +169,61 @@ h3 {
 	max-width: 960px;
 	margin: 0 auto;
 	display: block;
+}
+
+.form-volunteer {
+	background-color: #e7f2d1;
+	padding: 2em;
+}
+
+.form-volunteer button {
+	background-color: #3c702c;
+	color: #fff;
+	font-weight: 700;
+}
+
+.form-stacked label,
+.form-stacked fieldset {
+	display: block;
+	font-weight: 700;
+	font-size: 0.85em;
+	margin-bottom: 0.5em;
+}
+
+.form-stacked fieldset {
+	border: none;
+	padding: 0;
+	padding-top: 0.5em;
+	margin-bottom: 1em;
+}
+
+.form-stacked input {
+	border: 1px solid #ccc;
+	margin-bottom: 1em;
+}
+
+.form-stacked div {
+	display: flex;
+	align-items: flex-start;
+}
+
+.form-stacked div label {
+	font-weight: 400;
+}
+
+details {
+	padding-left: 2em;
+}
+
+summary {
+	font-weight: 700;
+	margin-bottom: 1em;
+	margin-left: -2em;
+	color: #284320;
+}
+
+summary:hover {
+	cursor: pointer;
 }
 
 footer {
@@ -175,6 +247,7 @@ button {
 footer button {
 	background-color: #F9DF90;
 	border: none;
+	font-weight: 700;
 }
 
 footer .content-container {

@@ -17,36 +17,105 @@
 </head>
 
 <body>
-	<nav>
-		<a href="/" class="logo"><img src="../images/logo.svg" alt="Forestdale Neighborhood Garden" /></a>
-		<a href="/news">News</a>
-		<a href="/faq">FAQs</a>
-		<a href="/volunteer">Volunteer</a>
-		<a href="/blog">Blog</a>
-		<div id="google_translate_element"></div>
-	</nav>
+	<div class="nav-wrapper">
+		<nav class="content-container nav">
+			<a href="/" class="logo"><img src="../images/logo-light.svg"
+					alt="Forestdale Neighborhood Garden Project" /></a>
+			<a href="/news">News</a>
+			<a href="/faq" class="active">FAQs</a>
+			<a href="/volunteer">Volunteer</a>
+			<a href="/leadership">Leadership</a>
+			<a href="/blog">Blog</a>
+			<div id="google_translate_element"></div>
+		</nav>
+	</div>
 
 	<main>
-		<section>
-			<h1>FAQs</h1>
+		<header class="header-background">
+			<div class="content-container">
+				<h1>Frequently Asked Questions</h1>
+			</div>
+		</header>
+		<section class="content-container content-container-narrow">
+			<details>
+				<summary>Where will the garden be located?</summary>
+				<p>We hope to grow the garden on a <a
+						href="https://maldenma.mapgeo.io/datasets/committed?abuttersDistance=500&latlng=42.43718%2C-71.05888&previewId=091%20776%20612&share=2e0a64c0-85aa-4595-82ac-f9eb54722ab5&zoom=19&sidebar=false">strip
+						of city-owned property on Goodwin Avenue</a>. The area we are hoping to
+					use for the garden is the sunny area closest to 20 Goodwin Avenue. The shaded areas aren't as suitable
+					for planting, and in some cases, are very close to homes where it wouldn't make as much sense to have
+					garden activity.</p>
+			</details>
 			<details>
 				<summary>Who will maintain the garden?</summary>
-				<p>Ashley Kolodziej has volunteered to be garden coordinator.</p>
+				<p><a href="../leadership/">Ashley Kolodziej</a> has volunteered to be garden coordinator. She lives next to
+					the proposed garden area and
+					is able to keep an eye on simple day to day needs. However, great gardens take a village! We are
+					actively looking for additional volunteers to help promote, maintain, and build the garden. Please <a
+						href="../volunteer/index.html#volunteerform">sign up as a volunteer</a> if you're interested in
+					helping out.</p>
+			</details>
+			<details>
+				<summary>What stage is the garden at?</summary>
+				<p>We're in the early stages of planning now, and focusing on gathering input and volunteers to make this a
+					reality. You can help now by attending upcoming meetings or signing up to help with our leadership! <a
+						href="../volunteer/">Learn more about volunteering</a> if you want to help now.</p>
 			</details>
 			<details>
 				<summary>Will the garden attract pests, such as rats?</summary>
-				<p>There are many ways to avoid pests.</p>
+				<p>Our goal is to build a garden that does not attract pests. We will incorporate this requirement into our
+					plant selection and plans for building any garden beds. Some flowers, like lavender and daffodils, are
+					even natural pest repellents, meaning that you may see a reduction in local pests if we plan this
+					correctly.</p>
 			</details>
 			<details>
-				<summary>What about coyotes? Will this increase the coyote population?</summary>
-				<p>No. Coyotes do not eat tomatoes.</p>
+				<summary>Will the garden increase the local coyote population?</summary>
+				<p>No. As people who live in the neighborhood and have our own pets, we understand how important it is for
+					our safety and our pets' safety to ensure we don't encourage additional coyote activity. By ensuring that
+					we are integrating pest management planning and techniques into our build plan and
+					plant choices, we will reduce pests such as rats and rabbits, which will reduce food sources for coyotes.
+					The garden will
+					also take a open, unattended area where a coyote could previously hang out and keep it more actively used
+					and maintained. Our hope is that by maintaining the area, we can not only prevent an increase in coyotes
+					as a result of the garden - perhaps we can even discourage them from congregating in our street in
+					sheltered areas.</p>
 			</details>
 			<details>
-				<summary>Is</summary>
-				<p>No. Coyotes do not eat tomatoes.</p>
+				<summary>How will the garden be funded?</summary>
+				<p>The garden will be funded primarily through outside grants. It will not use or affect the City of Malden
+					budget. We plan to keep costs minimal while keeping the community involved by creating volunteer events
+					where folks can help build garden boxes, plant seeds, and maintain the garden. We have lots of time to
+					plan, so we expect that we can propagate or plant many of our plants from seed. We also plan to
+					incorporate techniques that will reduce water usage and maintainance requirements, such as rain barrels
+					and olla watering.</p>
+			</details>
+			<details>
+				<summary>Where can I find details about upcoming meetings?</summary>
+				<p>You can join our email list below for the most up to date information. We'll also publicize upcoming
+					meetings on Facebook and Reddit.</p>
+			</details>
+			<details>
+				<summary>How can I sign up to help?</summary>
+				<p>We need people with all kinds of skills to help make this idea a reality! Check out our <a
+						href="../volunteer/">volunteer page</a> to see all the opportunities and sign up.</p>
 			</details>
 		</section>
 	</main>
+	<footer>
+		<div class="content-container">
+			<h2>Join our email list</h2>
+			<p>Stay informed about upcoming meetings and how the project is progressing!</p>
+			<form name="emaillist" method="POST" netlify>
+				<label for="name">Name</label>
+				<input type="text" id="name" name="name" required>
+
+				<label for="email">Email</label>
+				<input type="email" id="email" name="email" required>
+
+				<button type="submit">Submit</button>
+			</form>
+		</div>
+	</footer>
 
 	<script type="text/javascript">
 		function googleTranslateElementInit() {
