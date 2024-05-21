@@ -346,3 +346,7 @@ footer .content-container {
 	/* z-index: 100; */
 	box-shadow: 1px 1px 1px hsl(0, 50%, 2%, .5);
 }
+
+aside {
+	margin-bottom: 3em;
+}
