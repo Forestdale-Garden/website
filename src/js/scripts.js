@@ -1,2 +1,4 @@
-// This file is eventually where you'll learn to write JavaScript.
-// For right now, you don't need to worry about it.
+const container = document.querySelector('.container');
+document.querySelector('.slider').addEventListener('input', (e) => {
+	container.style.setProperty('--position', `${e.target.value}%`);
+})
