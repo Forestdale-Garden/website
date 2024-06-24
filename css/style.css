@@ -97,10 +97,15 @@ nav .active {
 img {
 	display: block;
 	max-width: 100%;
+	margin-bottom: 1em;
 }
 
 .logo {
 	width: 300px;
+}
+
+.logo img {
+	margin-bottom: 0;
 }
 
 #google_translate_element {
