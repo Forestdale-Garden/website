@@ -6,8 +6,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description"
-		content="A community garden in Malden, Massachusetts with a goal of changing vacant land to a vibrant space where neighbors cultivate plants, friendships and a sense of belonging." />
-	<title>Forestdale Neighborhood Garden</title>
+		content="Volunteer with the Forestdale Pocket Forest in Malden, Massachusetts. Find ways to get involved and help maintain Malden's first pocket forest." />
+	<title>Volunteer - Forestdale Pocket Forest</title>
 	<link rel="stylesheet" href="../css/style.css" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,12 +20,12 @@
 	<div class="nav-wrapper">
 		<nav class="content-container nav">
 			<a href="/" class="logo"><img src="../images/logo-light.svg"
-					alt="Forestdale Neighborhood Garden Project" /></a>
-			<a href="/news">News</a>
-			<a href="/faq">FAQs</a>
+					alt="Forestdale Pocket Forest" /></a>
 			<a href="/volunteer" class="active">Volunteer</a>
-			<a href="/leadership">Leadership</a>
-			<a href="/blog">Blog</a>
+			<a href="/wishlist">Wishlist</a>
+			<a href="/impact">Impact</a>
+			<a href="/milestones">Milestones</a>
+			<a href="/faq">FAQs</a>
 			<div id="google_translate_element"></div>
 		</nav>
 	</div>
@@ -39,7 +39,7 @@
 			<section class="two-column">
 				<div>
 					<h2>Volunteer with us!</h2>
-					<p>Love the idea of contributing to the garden? We need help of all kinds! No matter what your skillset
+					<p>Love the idea of contributing to the pocket forest? We need help of all kinds! No matter what your skillset
 						is,
 						there are opportunities available for you to help. Not only will you get to contribute to a fun
 						project - you'll also learn new skills and make connections in our neighborhood. Here are just a few
@@ -70,19 +70,19 @@
 						together and fill garden beds. Learn a bit about woodworking without having to deal with saws at a bed
 						kit building volunteer event!</li>
 					<li><strong>Looking for a low-commitment, family-friendly activity?</strong> Join us for one of our
-						weekly maintenance meetups! You'll get a quick tour of the garden plants, tips for care, and the
+						weekly maintenance meetups! You'll get a quick tour of the pocket forest plants, tips for care, and the
 						opportunity to take home seasonal herbs and fresh flowers in exchange for your hard work weeding,
 						fertilizing, and watering the plants.</li>
-					<li><strong>Just want to learn a bit about gardening?</strong> After the garden is ready, we'll be able
-						to create self-guided care activities for the garden, ranging from learning how to test if the soil
-						needs water to how to identify common weeds amongst our plants. This gives everyone a quiet option for
-						enjoying and caring for the garden on their own time. A great option for those who don't have their
-						own land, but want to practice or learn the hobby!</li>
+					<li><strong>Just want to learn a bit about gardening?</strong> We create self-guided care activities
+						for the pocket forest, ranging from learning how to test if the soil needs water to how to identify
+						common weeds amongst our plants. This gives everyone a quiet option for enjoying and caring for the
+						pocket forest on their own time. A great option for those who don't have their own land, but want
+						to practice or learn the hobby!</li>
 				</ul>
 			</section>
 			<section class="form-volunteer" id="volunteerform">
 				<h2>Sign up to volunteer</h2>
-				<p>We need everyone we can get! Sign up and let us know what you can contribute to the garden. We're excited
+				<p>We need everyone we can get! Sign up and let us know what you can contribute to the pocket forest. We're excited
 					to get to know you better through gardening!</p>
 				<form class="form-stacked" name="volunteer" method="POST" netlify>
 					<label for="firstname">First Name</label>
@@ -119,15 +119,15 @@
 						</div>
 						<div>
 							<input type="checkbox" id="planting" name="interest-planting" />
-							<label for="planting">Planting the garden</label>
+							<label for="planting">Planting in the pocket forest</label>
 						</div>
 						<div>
 							<input type="checkbox" id="maintenance" name="interest-maintenance" />
-							<label for="maintenance">Maintaining the garden as a group</label>
+							<label for="maintenance">Maintaining the pocket forest as a group</label>
 						</div>
 						<div>
 							<input type="checkbox" id="selfguided" name="interest-selfguided" />
-							<label for="selfguided">Self-guided garden maintenance on your schedule</label>
+							<label for="selfguided">Self-guided pocket forest maintenance on your schedule</label>
 						</div>
 						<div>
 							<input type="checkbox" id="other" name="interest-other" />
@@ -141,18 +141,25 @@
 		</section>
 	</main>
 	<footer>
-		<div class="content-container">
-			<h2>Join our email list</h2>
-			<p>Stay informed about upcoming meetings and how the project is progressing!</p>
-			<form name="emaillist" method="POST" netlify>
-				<label for="name">Name</label>
-				<input type="text" id="name" name="name" required>
+		<div class="content-container footer-inner">
+			<div>
+				<h2>Join our email list</h2>
+				<p>Stay informed about upcoming meetings and how the project is progressing!</p>
+				<form name="emaillist" method="POST" netlify>
+					<label for="name">Name</label>
+					<input type="text" id="name" name="name" required>
 
-				<label for="email">Email</label>
-				<input type="email" id="email" name="email" required>
+					<label for="email">Email</label>
+					<input type="email" id="email" name="email" required>
 
-				<button type="submit">Submit</button>
-			</form>
+					<button type="submit">Submit</button>
+				</form>
+			</div>
+			<nav class="footer-nav" aria-label="Site links">
+				<h2>Explore</h2>
+				<a href="/news">News</a>
+				<a href="/leadership">Leadership</a>
+			</nav>
 		</div>
 	</footer>
 
