@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description"
+		content="Browse the plants currently growing in the Forestdale Pocket Forest in Malden, Massachusetts." />
+	<title>Species - Forestdale Pocket Forest</title>
+	<link rel="stylesheet" href="../css/style.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=National+Park:wght@200..800&family=Faustina:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+	<style>
+		.species-grid {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 1.5em;
+			margin-top: 0.75em;
+		}
+
+		@media screen and (min-width: 600px) {
+			.species-grid {
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+
+		@media screen and (min-width: 960px) {
+			.species-grid {
+				grid-template-columns: repeat(3, 1fr);
+			}
+		}
+
+		.plant-card {
+			border: 1px solid #d4e8bc;
+			border-radius: 4px;
+			overflow: hidden;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.plant-card-photo {
+			width: 100%;
+			aspect-ratio: 4/3;
+			object-fit: cover;
+			margin-bottom: 0;
+		}
+
+		.plant-card-photo-placeholder {
+			width: 100%;
+			aspect-ratio: 4/3;
+			background-color: #e7f2d1;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 3rem;
+		}
+
+		.plant-card-body {
+			padding: 1em;
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.plant-card-body h3 {
+			margin-bottom: 0.15em;
+			font-size: 1.1rem;
+		}
+
+		.plant-card-latin {
+			font-style: italic;
+			color: #555;
+			font-size: 0.85em;
+			margin-bottom: 0.75em;
+		}
+
+		.plant-card-tags {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 4px;
+			margin-bottom: 0.75em;
+		}
+
+		.tag {
+			font-size: 0.7em;
+			font-weight: 700;
+			padding: 0.2em 0.5em;
+			border-radius: 2px;
+			background-color: #e7f2d1;
+			color: #00431B;
+		}
+
+		.plant-card-notes {
+			font-size: 0.85em;
+			color: #444;
+			margin-bottom: 0.75em;
+			flex: 1;
+		}
+
+		.plant-card-donor {
+			font-size: 0.8em;
+			color: #555;
+			margin-top: auto;
+			padding-top: 0.75em;
+			border-top: 1px solid #d4e8bc;
+		}
+
+		.species-loading,
+		.species-error,
+		.species-empty {
+			padding: 2em 0;
+			color: #555;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="nav-wrapper">
+		<nav class="content-container nav">
+			<a href="/" class="logo"><img src="../images/logo-light.svg"
+					alt="Forestdale Pocket Forest" /></a>
+			<button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+			</button>
+			<a href="/species" class="active">Species</a>
+			<a href="/wishlist">Wishlist</a>
+			<a href="/milestones">Milestones</a>
+			<a href="/faq">FAQs</a>
+			<a href="/volunteer" class="nav-volunteer">Volunteer</a>
+			<a href="https://www.facebook.com/forestdalepocketforest" class="nav-social" target="_blank" rel="noopener noreferrer" aria-label="Forestdale Pocket Forest on Facebook">
+				<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+			</a>
+		</nav>
+	</div>
+	<main>
+		<header class="header-background">
+			<div class="content-container">
+				<h1>Species</h1>
+			</div>
+		</header>
+		<section class="content-container">
+			<div class="page-intro" style="max-width: 60ch">
+				<h2>What&rsquo;s growing in our forest</h2>
+				<p>These are the plants that have been purchased and planted in the Forestdale Pocket Forest. Each one was made possible by a generous donor from our community.</p>
+			</div>
+			<div id="species-status" class="species-loading">Loading species&hellip;</div>
+			<div id="species-grid" class="species-grid" aria-live="polite"></div>
+		</section>
+	</main>
+
+	<footer>
+		<div class="content-container footer-inner">
+			<div>
+				<h2>Join our email list</h2>
+				<p>Stay informed about upcoming meetings and how the project is progressing!</p>
+				<form name="emaillist" method="POST" netlify>
+					<label for="name">Name</label>
+					<input type="text" id="name" name="name" required>
+
+					<label for="email">Email</label>
+					<input type="email" id="email" name="email" required>
+
+					<button type="submit">Submit</button>
+				</form>
+			</div>
+			<nav class="footer-nav" aria-label="Site links">
+				<h2>Explore</h2>
+				<a href="/news">News</a>
+				<a href="/leadership">Leadership</a>
+				<div id="google_translate_element"></div>
+			</nav>
+		</div>
+	</footer>
+
+	<script>
+		(function () {
+			const grid = document.getElementById('species-grid');
+			const status = document.getElementById('species-status');
+
+			function renderCard(plant) {
+				let photoHtml;
+				if (plant['Photo'] && plant['Photo'].length > 0) {
+					const photo = plant['Photo'][0];
+					const src = photo.thumbnails ? photo.thumbnails.large.url : photo.url;
+					photoHtml = `<img class="plant-card-photo" src="${src}" alt="${plant['Common Name'] || 'Plant photo'}" loading="lazy">`;
+				} else {
+					photoHtml = `<div class="plant-card-photo-placeholder" aria-hidden="true">🌿</div>`;
+				}
+
+				const tags = (plant['Type'] || []).map(t => `<span class="tag">${t}</span>`).join('');
+				const nativeTag = plant['Native?'] ? `<span class="tag">Native</span>` : '';
+				const annualTag = plant['Annual?'] ? `<span class="tag">Annual</span>` : '';
+				const tagsHtml = (tags || nativeTag || annualTag)
+					? `<div class="plant-card-tags">${tags}${nativeTag}${annualTag}</div>`
+					: '';
+
+				const notesHtml = plant['Notes']
+					? `<p class="plant-card-notes">${plant['Notes']}</p>`
+					: '';
+
+				const infoHtml = plant['Information']
+					? `<p class="plant-card-notes"><a href="${plant['Information']}" target="_blank" rel="noopener noreferrer">Learn more about this plant</a></p>`
+					: '';
+
+				const donorHtml = plant['Donor']
+					? `<p class="plant-card-donor">Donated by ${plant['Donor']}</p>`
+					: '';
+
+				return `
+					<article class="plant-card">
+						${photoHtml}
+						<div class="plant-card-body">
+							<h3>${plant['Common Name'] || 'Unknown plant'}</h3>
+							${plant['Latin Name'] ? `<p class="plant-card-latin">${plant['Latin Name']}</p>` : ''}
+							${tagsHtml}
+							${notesHtml}
+							${infoHtml}
+							${donorHtml}
+						</div>
+					</article>
+				`;
+			}
+
+			fetch('/.netlify/functions/get-species')
+				.then(r => {
+					if (!r.ok) throw new Error('Failed to load species');
+					return r.json();
+				})
+				.then(plants => {
+					status.style.display = 'none';
+					if (plants.length === 0) {
+						grid.innerHTML = '<p class="species-empty">No plants to show yet &mdash; check back soon!</p>';
+						return;
+					}
+					grid.innerHTML = plants.map(renderCard).join('');
+				})
+				.catch(() => {
+					status.textContent = 'Unable to load species right now. Please try again later.';
+					status.className = 'species-error';
+				});
+		})();
+	</script>
+
+	<script type="text/javascript">
+		function googleTranslateElementInit() {
+			new google.translate.TranslateElement({
+				pageLanguage: 'en',
+				autoDisplay: false,
+				layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+			}, 'google_translate_element');
+		}
+		const navToggle = document.querySelector('.nav-toggle');
+		if (navToggle) {
+			navToggle.addEventListener('click', function() {
+				const nav = this.closest('nav');
+				const expanded = this.getAttribute('aria-expanded') === 'true';
+				this.setAttribute('aria-expanded', String(!expanded));
+				this.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
+				nav.classList.toggle('nav-open');
+			});
+		}
+	</script>
+	<script type="text/javascript"
+		src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+
+</html>

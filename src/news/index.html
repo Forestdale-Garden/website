@@ -11,9 +11,7 @@
 	<link rel="stylesheet" href="../css/style.css" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link
-		href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Noto+Sans+Arabic:wght@100..900&family=Noto+Sans+SC:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
-		rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=National+Park:wght@200..800&family=Faustina:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -21,12 +19,17 @@
 		<nav class="content-container nav">
 			<a href="/" class="logo"><img src="../images/logo-light.svg"
 					alt="Forestdale Pocket Forest" /></a>
-			<a href="/volunteer">Volunteer</a>
+			<button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+			</button>
+			<a href="/species">Species</a>
 			<a href="/wishlist">Wishlist</a>
-			<a href="/impact">Impact</a>
 			<a href="/milestones">Milestones</a>
 			<a href="/faq">FAQs</a>
-			<div id="google_translate_element"></div>
+			<a href="/volunteer" class="nav-volunteer">Volunteer</a>
+			<a href="https://www.facebook.com/forestdalepocketforest" class="nav-social" target="_blank" rel="noopener noreferrer" aria-label="Forestdale Pocket Forest on Facebook">
+				<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+			</a>
 		</nav>
 	</div>
 
@@ -223,13 +226,28 @@
 				<h2>Explore</h2>
 				<a href="/news">News</a>
 				<a href="/leadership">Leadership</a>
+				<div id="google_translate_element"></div>
 			</nav>
 		</div>
 	</footer>
 
 	<script type="text/javascript">
 		function googleTranslateElementInit() {
-			new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+			new google.translate.TranslateElement({
+				pageLanguage: 'en',
+				autoDisplay: false,
+				layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+			}, 'google_translate_element');
+		}
+		const navToggle = document.querySelector('.nav-toggle');
+		if (navToggle) {
+			navToggle.addEventListener('click', function() {
+				const nav = this.closest('nav');
+				const expanded = this.getAttribute('aria-expanded') === 'true';
+				this.setAttribute('aria-expanded', String(!expanded));
+				this.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
+				nav.classList.toggle('nav-open');
+			});
 		}
 	</script>
 	<script type="text/javascript"

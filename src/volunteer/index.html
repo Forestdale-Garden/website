@@ -11,9 +11,21 @@
 	<link rel="stylesheet" href="../css/style.css" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link
-		href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Noto+Sans+Arabic:wght@100..900&family=Noto+Sans+SC:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
-		rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=National+Park:wght@200..800&family=Faustina:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+	<style>
+		.volunteer-layout {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 2em;
+			align-items: start;
+		}
+
+		@media (min-width: 768px) {
+			.volunteer-layout {
+				grid-template-columns: 1fr 1fr;
+			}
+		}
+	</style>
 </head>
 
 <body>
@@ -21,12 +33,17 @@
 		<nav class="content-container nav">
 			<a href="/" class="logo"><img src="../images/logo-light.svg"
 					alt="Forestdale Pocket Forest" /></a>
-			<a href="/volunteer" class="active">Volunteer</a>
+			<button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+			</button>
+			<a href="/species">Species</a>
 			<a href="/wishlist">Wishlist</a>
-			<a href="/impact">Impact</a>
 			<a href="/milestones">Milestones</a>
 			<a href="/faq">FAQs</a>
-			<div id="google_translate_element"></div>
+			<a href="/volunteer" class="nav-volunteer active">Volunteer</a>
+			<a href="https://www.facebook.com/forestdalepocketforest" class="nav-social" target="_blank" rel="noopener noreferrer" aria-label="Forestdale Pocket Forest on Facebook">
+				<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+			</a>
 		</nav>
 	</div>
 	<main>
@@ -35,55 +52,19 @@
 				<h1>Volunteer</h1>
 			</div>
 		</header>
-		<section class="content-container content-container-narrow">
-			<section class="two-column">
+		<section class="content-container">
+			<div class="volunteer-layout">
 				<div>
-					<h2>Volunteer with us!</h2>
-					<p>Love the idea of contributing to the pocket forest? We need help of all kinds! No matter what your skillset
-						is,
-						there are opportunities available for you to help. Not only will you get to contribute to a fun
-						project - you'll also learn new skills and make connections in our neighborhood. Here are just a few
-						ideas to get your imagination
-						started:</p>
+					<p>Love the idea of contributing to the pocket forest? Here are the best ways to get involved. You can also <a href="https://www.facebook.com/groups/forestdalepocketforest" target="_blank" rel="noopener noreferrer">join our Facebook group</a> to stay in the loop on upcoming events and volunteer opportunities.</p>
+					<ul>
+						<li><strong>Plant something.</strong> Join us for a planting day and help put new trees, shrubs, or groundcover in the ground. No experience needed &mdash; we'll show you what to do.</li>
+						<li><strong>Donate a plant.</strong> Check out our <a href="/wishlist">Plant Wishlist</a> and donate a plant we're hoping to add to the forest. It's one of the most direct ways to make a lasting impact.</li>
+						<li><strong>Help with cleanup and maintenance.</strong> Join a group event to water, weed, pull invasives, and keep the space looking its best — or stop by on your own schedule and do a little light care whenever you're passing by. Family-friendly and low-commitment.</li>
+					</ul>
 				</div>
-				<img src="../images/cactus.png"
-					alt="A cute illustration of a young cactus with a flower in a small pot, smiling and reaching up" />
-			</section>
-			<section>
-				<ul>
-					<li><strong>No green thumb?</strong> No problem! Join our leadership team and attend planning meetings.
-						Successful gardens need people who can plan, direct, and help make decisions!</li>
-					<li><strong>Love gardening and landscaping?</strong> Help us plan and select plants that meet our
-						neighborhood needs! We'll need lots of help with this for our first year, and after that, we'll want
-						to decide on new annuals each spring.</li>
-					<li><strong>Do you have a strong cultural connection with herbs, culinary, or gardening?</strong> Share
-						your knowledge! One of the beautiful things about this small space is that we can use it to get to
-						know each other better and honor Malden's rich, multicultural population. Let us know what plants or
-						herbs represent you, and help us develop
-						educational content around them for our website. It can be as simple as a recipe or as much as a
-						workshop. Choose what works for you.</li>
-					<li><strong>Do you have tools?</strong> You might like to help build! As we get closer to building the
-						garden, we will need folks with tools and woodworking skills to help us create raised garden bed kits.
-						We'll provide the materials, plans, and music. Your skills help us keep costs down for the whole
-						neighborhood.</li>
-					<li><strong>Not a fan of saws?</strong> After kits are done, we'll need lots of help to put
-						together and fill garden beds. Learn a bit about woodworking without having to deal with saws at a bed
-						kit building volunteer event!</li>
-					<li><strong>Looking for a low-commitment, family-friendly activity?</strong> Join us for one of our
-						weekly maintenance meetups! You'll get a quick tour of the pocket forest plants, tips for care, and the
-						opportunity to take home seasonal herbs and fresh flowers in exchange for your hard work weeding,
-						fertilizing, and watering the plants.</li>
-					<li><strong>Just want to learn a bit about gardening?</strong> We create self-guided care activities
-						for the pocket forest, ranging from learning how to test if the soil needs water to how to identify
-						common weeds amongst our plants. This gives everyone a quiet option for enjoying and caring for the
-						pocket forest on their own time. A great option for those who don't have their own land, but want
-						to practice or learn the hobby!</li>
-				</ul>
-			</section>
 			<section class="form-volunteer" id="volunteerform">
 				<h2>Sign up to volunteer</h2>
-				<p>We need everyone we can get! Sign up and let us know what you can contribute to the pocket forest. We're excited
-					to get to know you better through gardening!</p>
+				<p>Let us know you're interested and we'll reach out when there's an opportunity that matches what you want to do.</p>
 				<form class="form-stacked" name="volunteer" method="POST" netlify>
 					<label for="firstname">First Name</label>
 					<input type="text" id="firstname" name="firstname" required>
@@ -94,50 +75,26 @@
 					<fieldset>
 						<legend>What are you interested in?</legend>
 						<div>
-							<input type="checkbox" id="leadership" name="interest-leadership" />
-							<label for="leadership">Joining the leadership team</label>
-						</div>
-						<div>
-							<input type="checkbox" id="attending" name="interest-attendance" />
-							<label for="attending">Attending planning meetings regularly</label>
-						</div>
-						<div>
-							<input type="checkbox" id="plantplanning" name="interest-plantplanning" />
-							<label for="plantplanning">Plant selection and planning</label>
-						</div>
-						<div>
-							<input type="checkbox" id="education" name="interest-education" />
-							<label for="education">Developing educational content</label>
-						</div>
-						<div>
-							<input type="checkbox" id="bedkits" name="interest-createbuildkits" />
-							<label for="bedkits">Creating garden bed kits (requires a saw)</label>
-						</div>
-						<div>
-							<input type="checkbox" id="bedbuild" name="interest-puttogetherbuildkits" />
-							<label for="bedbuild">Building garden bed kits (no saws required)</label>
-						</div>
-						<div>
 							<input type="checkbox" id="planting" name="interest-planting" />
-							<label for="planting">Planting in the pocket forest</label>
+							<label for="planting">Planting days</label>
+						</div>
+						<div>
+							<input type="checkbox" id="donating" name="interest-donating" />
+							<label for="donating">Donating a plant from the wishlist</label>
 						</div>
 						<div>
 							<input type="checkbox" id="maintenance" name="interest-maintenance" />
-							<label for="maintenance">Maintaining the pocket forest as a group</label>
-						</div>
-						<div>
-							<input type="checkbox" id="selfguided" name="interest-selfguided" />
-							<label for="selfguided">Self-guided pocket forest maintenance on your schedule</label>
+							<label for="maintenance">Cleanup and maintenance</label>
 						</div>
 						<div>
 							<input type="checkbox" id="other" name="interest-other" />
-							<label for="other">Other (please email us at forestdalecommunitygarden@gmail.com to let us know
-								what you want to do!)</label>
+							<label for="other">Something else</label>
 						</div>
 					</fieldset>
 					<button type="submit">Sign Up</button>
 				</form>
 			</section>
+			</div>
 		</section>
 	</main>
 	<footer>
@@ -159,13 +116,28 @@
 				<h2>Explore</h2>
 				<a href="/news">News</a>
 				<a href="/leadership">Leadership</a>
+				<div id="google_translate_element"></div>
 			</nav>
 		</div>
 	</footer>
 
 	<script type="text/javascript">
 		function googleTranslateElementInit() {
-			new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+			new google.translate.TranslateElement({
+				pageLanguage: 'en',
+				autoDisplay: false,
+				layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+			}, 'google_translate_element');
+		}
+		const navToggle = document.querySelector('.nav-toggle');
+		if (navToggle) {
+			navToggle.addEventListener('click', function() {
+				const nav = this.closest('nav');
+				const expanded = this.getAttribute('aria-expanded') === 'true';
+				this.setAttribute('aria-expanded', String(!expanded));
+				this.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
+				nav.classList.toggle('nav-open');
+			});
 		}
 	</script>
 	<script type="text/javascript"
