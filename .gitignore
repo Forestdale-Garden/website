@@ -1,5 +1,6 @@
 ## Project
 dist/*
+.env
 
 ## Node.js
 lib-cov
@@ -33,3 +34,6 @@ Thumbs.db
 ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
+
+# Local Netlify folder
+.netlify

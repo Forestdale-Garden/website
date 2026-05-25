@@ -17,12 +17,13 @@
     "es6"
   ],
   "scripts": {
-    "start": "cross-env live-server src",
+    "start": "netlify dev --dir src --functions src/netlify/functions",
     "deploy": "gh-pages -d src"
   },
   "devDependencies": {
-    "cross-env": "^7.0.3",
-    "gh-pages": "^5.0.0",
-    "live-server": "^1.2.2"
+    "cross-env": "^10.1.0",
+    "gh-pages": "^6.3.0",
+    "live-server": "^1.2.2",
+    "netlify-cli": "^26.0.2"
   }
 }

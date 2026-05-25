@@ -6,8 +6,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description"
-		content="A community garden project in Malden, Massachusetts with a goal of changing vacant land to a vibrant space where neighbors cultivate plants, friendships and a sense of belonging." />
-	<title>Forestdale Neighborhood Garden</title>
+		content="A pocket forest project in Malden, Massachusetts with a goal of changing vacant land to a vibrant space where neighbors cultivate plants, friendships and a sense of belonging." />
+	<title>Forestdale Pocket Forest</title>
 	<link rel="stylesheet" href="css/style.css" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,12 +20,12 @@
 	<div class="nav-wrapper">
 		<nav class="content-container nav">
 			<a href="/" class="logo"><img src="../images/logo-light.svg"
-					alt="Forestdale Neighborhood Garden Project" /></a>
-			<a href="/news">News</a>
-			<a href="/faq">FAQs</a>
+					alt="Forestdale Pocket Forest" /></a>
 			<a href="/volunteer">Volunteer</a>
-			<a href="/leadership">Leadership</a>
-			<a href="/blog">Blog</a>
+			<a href="/wishlist">Wishlist</a>
+			<a href="/impact">Impact</a>
+			<a href="/milestones">Milestones</a>
+			<a href="/faq">FAQs</a>
 			<div id="google_translate_element"></div>
 		</nav>
 	</div>
@@ -34,7 +34,7 @@
 		<header class="header-background">
 			<div class="content-container">
 				<section>
-					<h1>Welcome to the Forestdale Neighborhood Garden Project!</h1>
+					<h1>Welcome to the Forestdale Pocket Forest!</h1>
 					<p>The goal of this project is to use a small parcel of city-owned land as an opportunity to create
 						community around the shared act of gardening and neighborhood care. By working together, we can take a
 						small space and make it meaningful for the residents of Forest Street, Goodwin Avenue, and surrounding
@@ -43,57 +43,37 @@
 			</div>
 		</header>
 		<section class="content-container content-container-narrow">
-			<h2>Imagine a space where we can learn and grow together.</h2>
-			<div class="container">
-				<div class="image-container">
-					<img class="image-before slider-image" src="images/garden-before.jpeg" alt="color photo" />
-					<img class="image-after slider-image" src="images/garden-after.jpeg" alt="black and white" />
-				</div>
-				<!-- step="10" -->
-				<input type="range" min="0" max="100" value="50" aria-label="Percentage of before photo shown"
-					class="slider" />
-				<div class="slider-line" aria-hidden="true"></div>
-				<div class="slider-button" aria-hidden="true">
-					<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 256 256">
-						<rect width="256" height="256" fill="none"></rect>
-						<line x1="128" y1="40" x2="128" y2="216" fill="none" stroke="currentColor" stroke-linecap="round"
-							stroke-linejoin="round" stroke-width="16"></line>
-						<line x1="96" y1="128" x2="16" y2="128" fill="none" stroke="currentColor" stroke-linecap="round"
-							stroke-linejoin="round" stroke-width="16"></line>
-						<polyline points="48 160 16 128 48 96" fill="none" stroke="currentColor" stroke-linecap="round"
-							stroke-linejoin="round" stroke-width="16"></polyline>
-						<line x1="160" y1="128" x2="240" y2="128" fill="none" stroke="currentColor" stroke-linecap="round"
-							stroke-linejoin="round" stroke-width="16"></line>
-						<polyline points="208 96 240 128 208 160" fill="none" stroke="currentColor" stroke-linecap="round"
-							stroke-linejoin="round" stroke-width="16"></polyline>
-					</svg>
-				</div>
-			</div>
-			<p>Right now, there is a small space in our neighborhood that goes unseen. Between several properties, owned by
-				the city, this little
-				strip of land is easily forgotten in our busy day to day routines. Rather than sit empty and collect debris,
-				imagine if we could use this space
-				to support our neighborhood. Let's support local pollinators, healthy cooking, and share our culture and
-				knowledge by using this space to grow herbs, flowers, and other plants that represent us and beautify this
-				overlooked area.</p>
+			<h2>A pocket forest, built by neighbors.</h2>
+			<p>Between several properties on Goodwin Avenue sits a small parcel of city-owned land that once went
+				unseen. Rather than leave it empty, our community came together to transform it into Malden&rsquo;s
+				first pocket forest &mdash; a space that supports local pollinators, healthy cooking, and the sharing
+				of culture and knowledge through plants.</p>
+			<a class="button" href="impact">See our impact</a>
 			<a class="button" href="news">Latest news</a>
-			<a class="button" href="volunteer">Learn how you can help</a>
+			<a class="button" href="volunteer">Get involved</a>
 		</section>
 	</main>
 
 	<footer>
-		<div class="content-container">
-			<h2>Join our email list</h2>
-			<p>Stay informed about upcoming meetings and how the project is progressing!</p>
-			<form name="emaillist" method="POST" netlify>
-				<label for="name">Name</label>
-				<input type="text" id="name" name="name" required>
+		<div class="content-container footer-inner">
+			<div>
+				<h2>Join our email list</h2>
+				<p>Stay informed about upcoming meetings and how the project is progressing!</p>
+				<form name="emaillist" method="POST" netlify>
+					<label for="name">Name</label>
+					<input type="text" id="name" name="name" required>
 
-				<label for="email">Email</label>
-				<input type="email" id="email" name="email" required>
+					<label for="email">Email</label>
+					<input type="email" id="email" name="email" required>
 
-				<button type="submit">Submit</button>
-			</form>
+					<button type="submit">Submit</button>
+				</form>
+			</div>
+			<nav class="footer-nav" aria-label="Site links">
+				<h2>Explore</h2>
+				<a href="/news">News</a>
+				<a href="/leadership">Leadership</a>
+			</nav>
 		</div>
 	</footer>
 
@@ -104,7 +84,6 @@
 	</script>
 	<script type="text/javascript"
 		src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-	<script src="js/scripts.js"></script>
 </body>
 
 </html>

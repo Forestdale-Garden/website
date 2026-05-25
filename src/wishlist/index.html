@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description"
+		content="Help the Forestdale Pocket Forest grow by donating plants from our wishlist." />
+	<title>Plant Wishlist - Forestdale Pocket Forest</title>
+	<link rel="stylesheet" href="../css/style.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Madimi+One&family=Noto+Sans+Arabic:wght@100..900&family=Noto+Sans+SC:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+		rel="stylesheet">
+	<style>
+		.wishlist-grid {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 1.5em;
+			margin-top: 1.5em;
+		}
+
+		@media screen and (min-width: 600px) {
+			.wishlist-grid {
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+
+		@media screen and (min-width: 960px) {
+			.wishlist-grid {
+				grid-template-columns: repeat(3, 1fr);
+			}
+		}
+
+		.plant-card {
+			border: 1px solid #d4e8bc;
+			border-radius: 4px;
+			overflow: hidden;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.plant-card-photo {
+			width: 100%;
+			aspect-ratio: 4/3;
+			object-fit: cover;
+			margin-bottom: 0;
+		}
+
+		.plant-card-photo-placeholder {
+			width: 100%;
+			aspect-ratio: 4/3;
+			background-color: #e7f2d1;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 3rem;
+		}
+
+		.plant-card-body {
+			padding: 1em;
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.plant-card-body h3 {
+			margin-bottom: 0.15em;
+			font-size: 1.1rem;
+		}
+
+		.plant-card-latin {
+			font-style: italic;
+			color: #555;
+			font-size: 0.85em;
+			margin-bottom: 0.75em;
+		}
+
+		.plant-card-tags {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 4px;
+			margin-bottom: 0.75em;
+		}
+
+		.tag {
+			font-size: 0.7em;
+			font-weight: 700;
+			padding: 0.2em 0.5em;
+			border-radius: 2px;
+			background-color: #e7f2d1;
+			color: #284320;
+		}
+
+		.tag-priority-high { background-color: #B73757; color: #fff; }
+		.tag-priority-medium { background-color: #3c702c; color: #fff; }
+		.tag-priority-low { background-color: #888; color: #fff; }
+
+		.plant-card-details {
+			font-size: 0.85em;
+			color: #444;
+			margin-bottom: 0.75em;
+		}
+
+		.plant-card-details p {
+			margin: 0 0 0.25em;
+		}
+
+		.plant-card-notes {
+			font-size: 0.85em;
+			color: #444;
+			margin-bottom: 0.75em;
+			flex: 1;
+		}
+
+		.plant-card-actions {
+			margin-top: auto;
+		}
+
+		.donate-success {
+			background-color: #e7f2d1;
+			padding: 0.75em 1em;
+			border-radius: 2px;
+			font-size: 0.9em;
+			display: none;
+		}
+
+		.donate-success.is-visible {
+			display: block;
+		}
+
+		.wishlist-loading,
+		.wishlist-error,
+		.wishlist-empty {
+			padding: 2em 0;
+			color: #555;
+		}
+
+		/* Dialog */
+
+		#donate-dialog {
+			border: none;
+			border-radius: 4px;
+			padding: 0;
+			max-width: min(560px, 92vw);
+			width: 100%;
+			box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+		}
+
+		#donate-dialog::backdrop {
+			background-color: rgba(0, 0, 0, 0.5);
+		}
+
+		.dialog-photo {
+			width: 100%;
+			aspect-ratio: 16/7;
+			object-fit: cover;
+			display: block;
+			margin-bottom: 0;
+		}
+
+		.dialog-photo-placeholder {
+			width: 100%;
+			aspect-ratio: 16/7;
+			background-color: #e7f2d1;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 4rem;
+		}
+
+		.dialog-body {
+			padding: 1.5em;
+		}
+
+		.dialog-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+			margin-bottom: 0.25em;
+		}
+
+		.dialog-header h2 {
+			margin: 0;
+			font-size: 1.4rem;
+		}
+
+		.dialog-close {
+			background: none;
+			border: none;
+			font-size: 1.5rem;
+			line-height: 1;
+			cursor: pointer;
+			color: #555;
+			padding: 0 0 0 0.5em;
+			margin: 0;
+			flex-shrink: 0;
+		}
+
+		.dialog-close:hover {
+			color: #000;
+		}
+
+		.dialog-latin {
+			font-style: italic;
+			color: #555;
+			font-size: 0.85em;
+			margin: 0 0 0.75em;
+		}
+
+		.dialog-details {
+			font-size: 0.875em;
+			color: #444;
+			margin-bottom: 1em;
+			border-top: 1px solid #d4e8bc;
+			padding-top: 0.75em;
+		}
+
+		.dialog-details p {
+			margin: 0 0 0.25em;
+		}
+
+		.dialog-form-heading {
+			font-family: "Madimi One", sans-serif;
+			font-size: 1rem;
+			color: #284320;
+			margin: 0 0 0.75em;
+		}
+
+		.dialog-form {
+			background-color: #e7f2d1;
+			padding: 1em;
+			border-radius: 2px;
+		}
+
+		.dialog-form label {
+			display: block;
+			font-weight: 700;
+			font-size: 0.85em;
+			margin-bottom: 0.25em;
+		}
+
+		.dialog-form input[type="text"],
+		.dialog-form input[type="email"] {
+			display: block;
+			width: 100%;
+			border: 1px solid #ccc;
+			margin-bottom: 0.75em;
+			padding: 0.25em 0.5em;
+		}
+
+		.dialog-form button[type="submit"] {
+			background-color: #3c702c;
+			color: #fff;
+			font-weight: 700;
+			cursor: pointer;
+		}
+
+		.dialog-form button[type="button"] {
+			background: none;
+			color: #555;
+			text-decoration: underline;
+			padding-left: 0;
+			cursor: pointer;
+		}
+
+		.dialog-success {
+			text-align: center;
+			padding: 1.5em 0 0.5em;
+		}
+
+		.dialog-success p {
+			margin: 0 0 1em;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="nav-wrapper">
+		<nav class="content-container nav">
+			<a href="/" class="logo"><img src="../images/logo-light.svg"
+					alt="Forestdale Pocket Forest" /></a>
+			<a href="/volunteer">Volunteer</a>
+			<a href="/wishlist" class="active">Wishlist</a>
+			<a href="/impact">Impact</a>
+			<a href="/milestones">Milestones</a>
+			<a href="/faq">FAQs</a>
+			<div id="google_translate_element"></div>
+		</nav>
+	</div>
+	<main>
+		<header class="header-background">
+			<div class="content-container">
+				<h1>Plant Wishlist</h1>
+			</div>
+		</header>
+		<section class="content-container content-container-narrow">
+			<section class="two-column">
+				<div>
+					<h2>Help our pocket forest grow!</h2>
+					<p>We're always looking to add new plants to our pocket forest. If you have a plant on this list — or know
+						someone who does — we'd love your help! Click the button on any item to let us know you can
+						donate it and we'll be in touch.</p>
+				</div>
+				<img src="../images/cactus.png"
+					alt="A cute illustration of a young cactus with a flower in a small pot, smiling and reaching up" />
+			</section>
+		</section>
+
+		<!-- Hidden static form so Netlify detects it at deploy time -->
+		<form name="donation-offer" netlify netlify-honeypot="bot-field" hidden>
+			<input type="hidden" name="form-name" value="donation-offer">
+			<input name="bot-field">
+			<input name="plant-name">
+			<input name="plant-id">
+			<input name="donor-name">
+			<input name="donor-email">
+		</form>
+
+		<section class="content-container">
+			<div id="wishlist-status" class="wishlist-loading">Loading wishlist&hellip;</div>
+			<div id="wishlist-grid" class="wishlist-grid" aria-live="polite"></div>
+		</section>
+	</main>
+
+	<!-- Shared donate dialog -->
+	<dialog id="donate-dialog" aria-labelledby="dialog-plant-name">
+		<div id="dialog-photo-area"></div>
+		<div class="dialog-body">
+			<div class="dialog-header">
+				<h2 id="dialog-plant-name"></h2>
+				<button class="dialog-close" type="button" onclick="closeDialog()" aria-label="Close">&#x2715;</button>
+			</div>
+			<p class="dialog-latin" id="dialog-latin"></p>
+			<div class="plant-card-tags" id="dialog-tags"></div>
+			<div class="dialog-details" id="dialog-details"></div>
+			<div id="dialog-form-area">
+				<p class="dialog-form-heading">Tell us who you are and we&rsquo;ll follow up!</p>
+				<div class="dialog-form">
+					<form id="dialog-form">
+						<input type="hidden" name="bot-field">
+						<label for="dialog-donor-name">Your name</label>
+						<input type="text" id="dialog-donor-name" name="donor-name" required autocomplete="name">
+						<label for="dialog-donor-email">Your email</label>
+						<input type="email" id="dialog-donor-email" name="donor-email" required autocomplete="email">
+						<button type="submit">Send offer</button>
+						<button type="button" onclick="closeDialog()">Cancel</button>
+					</form>
+				</div>
+			</div>
+			<div id="dialog-success" class="dialog-success" hidden>
+				<p><strong>Thank you!</strong> We&rsquo;ll be in touch soon about donating this plant.</p>
+				<button class="button" type="button" onclick="closeDialog()">Close</button>
+			</div>
+		</div>
+	</dialog>
+
+	<footer>
+		<div class="content-container footer-inner">
+			<div>
+				<h2>Join our email list</h2>
+				<p>Stay informed about upcoming meetings and how the project is progressing!</p>
+				<form name="emaillist" method="POST" netlify>
+					<label for="name">Name</label>
+					<input type="text" id="name" name="name" required>
+
+					<label for="email">Email</label>
+					<input type="email" id="email" name="email" required>
+
+					<button type="submit">Submit</button>
+				</form>
+			</div>
+			<nav class="footer-nav" aria-label="Site links">
+				<h2>Explore</h2>
+				<a href="/news">News</a>
+				<a href="/leadership">Leadership</a>
+			</nav>
+		</div>
+	</footer>
+
+	<script>
+		(function () {
+			const grid = document.getElementById('wishlist-grid');
+			const status = document.getElementById('wishlist-status');
+			const dialog = document.getElementById('donate-dialog');
+			const dialogForm = document.getElementById('dialog-form');
+
+			let plantMap = {};
+			let activeRecordId = null;
+
+			function priorityTag(p) {
+				if (!p) return '';
+				return `<span class="tag tag-priority-${p.toLowerCase()}">${p} priority</span>`;
+			}
+
+			function renderCard(plant) {
+				let photoHtml;
+				if (plant['Photo'] && plant['Photo'].length > 0) {
+					const photo = plant['Photo'][0];
+					const src = photo.thumbnails ? photo.thumbnails.large.url : photo.url;
+					photoHtml = `<img class="plant-card-photo" src="${src}" alt="${plant['Common Name'] || 'Plant photo'}" loading="lazy">`;
+				} else {
+					photoHtml = `<div class="plant-card-photo-placeholder" aria-hidden="true">🌱</div>`;
+				}
+
+				const tags = (plant['Type'] || []).map(t => `<span class="tag">${t}</span>`).join('');
+				const priority = priorityTag(plant['Priority']);
+
+				const details = [];
+				if (plant['Amount']) details.push(`Quantity needed: ${plant['Amount']}`);
+				if (plant['Price/Item']) details.push(`Est. cost/item: $${plant['Price/Item'].toFixed(2)}`);
+				if (plant['Native?']) details.push('Native plant');
+				if (plant['Annual?']) details.push('Annual');
+				const detailsHtml = details.length
+					? `<div class="plant-card-details">${details.map(d => `<p>${d}</p>`).join('')}</div>`
+					: '';
+
+				const notesHtml = plant['Notes']
+					? `<p class="plant-card-notes">${plant['Notes']}</p>`
+					: '';
+
+				const infoHtml = plant['Information']
+					? `<p><a href="${plant['Information']}" target="_blank" rel="noopener noreferrer">Learn more about this plant</a></p>`
+					: '';
+
+				return `
+					<article class="plant-card" id="plant-${plant.id}">
+						${photoHtml}
+						<div class="plant-card-body">
+							<h3>${plant['Common Name'] || 'Unknown plant'}</h3>
+							${plant['Latin Name'] ? `<p class="plant-card-latin">${plant['Latin Name']}</p>` : ''}
+							<div class="plant-card-tags">${priority}${tags}</div>
+							${detailsHtml}
+							${notesHtml}
+							${infoHtml}
+							<div class="plant-card-actions">
+								<button class="button" type="button" id="btn-${plant.id}" onclick="openDialog('${plant.id}')">
+									I can donate this!
+								</button>
+								<div class="donate-success" id="success-${plant.id}">
+									<strong>Thank you!</strong> We&rsquo;ll be in touch soon.
+								</div>
+							</div>
+						</div>
+					</article>
+				`;
+			}
+
+			function openDialog(id) {
+				const plant = plantMap[id];
+				if (!plant) return;
+
+				activeRecordId = id;
+
+				// Photo
+				const photoArea = document.getElementById('dialog-photo-area');
+				if (plant['Photo'] && plant['Photo'].length > 0) {
+					const photo = plant['Photo'][0];
+					const src = photo.thumbnails ? photo.thumbnails.large.url : photo.url;
+					photoArea.innerHTML = `<img class="dialog-photo" src="${src}" alt="${plant['Common Name'] || 'Plant photo'}" loading="lazy">`;
+				} else {
+					photoArea.innerHTML = `<div class="dialog-photo-placeholder" aria-hidden="true">🌱</div>`;
+				}
+
+				// Name & latin
+				document.getElementById('dialog-plant-name').textContent = plant['Common Name'] || 'Unknown plant';
+				const latinEl = document.getElementById('dialog-latin');
+				latinEl.textContent = plant['Latin Name'] || '';
+				latinEl.hidden = !plant['Latin Name'];
+
+				// Tags
+				const tags = (plant['Type'] || []).map(t => `<span class="tag">${t}</span>`).join('');
+				document.getElementById('dialog-tags').innerHTML = priorityTag(plant['Priority']) + tags;
+
+				// Details
+				const details = [];
+				if (plant['Amount']) details.push(`Quantity needed: ${plant['Amount']}`);
+				if (plant['Price/Item']) details.push(`Est. cost/item: $${plant['Price/Item'].toFixed(2)}`);
+				if (plant['Native?']) details.push('Native plant');
+				if (plant['Annual?']) details.push('Annual');
+				if (plant['Notes']) details.push(plant['Notes']);
+				const detailsEl = document.getElementById('dialog-details');
+				detailsEl.innerHTML = details.map(d => `<p>${d}</p>`).join('');
+				if (plant['Purchase at:']) {
+					detailsEl.innerHTML += `<p><a href="${plant['Purchase at:']}" target="_blank" rel="noopener noreferrer">Where to buy</a></p>`;
+				}
+				if (plant['Information']) {
+					detailsEl.innerHTML += `<p><a href="${plant['Information']}" target="_blank" rel="noopener noreferrer">Learn more about this plant</a></p>`;
+				}
+				detailsEl.hidden = details.length === 0 && !plant['Information'];
+
+				// Reset form state
+				dialogForm.reset();
+				dialogForm.querySelector('[type="submit"]').disabled = false;
+				dialogForm.querySelector('[type="submit"]').textContent = 'Send offer';
+				document.getElementById('dialog-form-area').hidden = false;
+				document.getElementById('dialog-success').hidden = true;
+
+				dialog.showModal();
+			}
+
+			function closeDialog() {
+				dialog.close();
+				activeRecordId = null;
+			}
+
+			// Close on backdrop click
+			dialog.addEventListener('click', function (e) {
+				if (e.target === dialog) closeDialog();
+			});
+
+			async function submitDonation(event) {
+				event.preventDefault();
+				const submitBtn = dialogForm.querySelector('[type="submit"]');
+				const donorName = dialogForm['donor-name'].value.trim();
+				const donorEmail = dialogForm['donor-email'].value.trim();
+				const plant = plantMap[activeRecordId];
+
+				submitBtn.disabled = true;
+				submitBtn.textContent = 'Sending…';
+
+				const body = new URLSearchParams({
+					'form-name': 'donation-offer',
+					'plant-name': plant['Common Name'] || '',
+					'plant-id': activeRecordId,
+					'donor-name': donorName,
+					'donor-email': donorEmail,
+				});
+
+				try {
+					const response = await fetch('/', {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+						body: body.toString(),
+					});
+
+					if (!response.ok) throw new Error('Something went wrong. Please try again.');
+
+					// Show success in dialog
+					document.getElementById('dialog-form-area').hidden = true;
+					document.getElementById('dialog-success').hidden = false;
+
+					// Show success state on the card
+					const btn = document.getElementById(`btn-${activeRecordId}`);
+					const successEl = document.getElementById(`success-${activeRecordId}`);
+					if (btn) btn.style.display = 'none';
+					if (successEl) successEl.classList.add('is-visible');
+				} catch (err) {
+					submitBtn.disabled = false;
+					submitBtn.textContent = 'Send offer';
+					alert(err.message || 'Something went wrong. Please try again.');
+				}
+			}
+
+			dialogForm.addEventListener('submit', submitDonation);
+
+			// Expose to global scope for inline event handlers
+			window.openDialog = openDialog;
+			window.closeDialog = closeDialog;
+
+			// Load wishlist
+			fetch('/.netlify/functions/get-wishlist')
+				.then(r => {
+					if (!r.ok) throw new Error('Failed to load wishlist');
+					return r.json();
+				})
+				.then(plants => {
+					status.style.display = 'none';
+					if (plants.length === 0) {
+						grid.innerHTML = '<p class="wishlist-empty">Our wishlist is empty right now — check back soon!</p>';
+						return;
+					}
+					plants.forEach(p => plantMap[p.id] = p);
+					grid.innerHTML = plants.map(renderCard).join('');
+				})
+				.catch(() => {
+					status.textContent = 'Unable to load the wishlist right now. Please try again later.';
+					status.className = 'wishlist-error';
+				});
+		})();
+	</script>
+
+	<script type="text/javascript">
+		function googleTranslateElementInit() {
+			new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+		}
+	</script>
+	<script type="text/javascript"
+		src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+
+</html>

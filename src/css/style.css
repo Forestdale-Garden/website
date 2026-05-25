@@ -278,6 +278,32 @@ footer .content-container {
 	padding: 5vw 10vw;
 }
 
+.footer-inner {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2em 4em;
+	align-items: flex-start;
+}
+
+.footer-nav h2 {
+	margin-bottom: 0.5em;
+}
+
+.footer-nav a {
+	display: block;
+	color: #F9DF90;
+	font-weight: 700;
+	font-size: 0.9em;
+	text-decoration: none;
+	padding: 0.25em 0;
+	border-bottom: 1px solid transparent;
+	transition: all .2s ease-in;
+}
+
+.footer-nav a:hover {
+	border-bottom: 1px solid currentColor;
+}
+
 /* Slider */
 
 .container {
