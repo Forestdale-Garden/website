@@ -143,10 +143,10 @@
 		<section class="content-container">
 			<div class="page-intro" style="max-width: 60ch">
 				<h2>What&rsquo;s growing in our forest</h2>
-				<p>These are the plants that have been purchased and planted in the Forestdale Pocket Forest. Each one was made possible by a generous donor from our community.</p>
+				<p>These are the plants that have been donated to the Forestdale Pocket Forest. Each one was made possible by a generous donor from our community.</p>
 			</div>
 			<div id="species-status" class="species-loading">Loading species&hellip;</div>
-			<div id="species-grid" class="species-grid" aria-live="polite"></div>
+			<div id="species-content" aria-live="polite"></div>
 		</section>
 	</main>
 
@@ -176,7 +176,7 @@
 
 	<script>
 		(function () {
-			const grid = document.getElementById('species-grid');
+			const content = document.getElementById('species-content');
 			const status = document.getElementById('species-status');
 
 			function renderCard(plant) {
@@ -231,10 +231,23 @@
 				.then(plants => {
 					status.style.display = 'none';
 					if (plants.length === 0) {
-						grid.innerHTML = '<p class="species-empty">No plants to show yet &mdash; check back soon!</p>';
+						content.innerHTML = '<p class="species-empty">No plants to show yet &mdash; check back soon!</p>';
 						return;
 					}
-					grid.innerHTML = plants.map(renderCard).join('');
+					const planted = plants.filter(p => p['Status'] === 'Planted');
+					const readyToPlant = plants.filter(p => p['Status'] === 'Ready to Plant');
+
+					let html = '';
+					if (planted.length > 0) {
+						html += `<h2>Planted</h2><div class="species-grid">${planted.map(renderCard).join('')}</div>`;
+					}
+					if (readyToPlant.length > 0) {
+						html += `<h2 style="margin-top:2em">Ready to Plant</h2><div class="species-grid">${readyToPlant.map(renderCard).join('')}</div>`;
+					}
+					if (!html) {
+						html = '<p class="species-empty">No plants to show yet &mdash; check back soon!</p>';
+					}
+					content.innerHTML = html;
 				})
 				.catch(() => {
 					status.textContent = 'Unable to load species right now. Please try again later.';

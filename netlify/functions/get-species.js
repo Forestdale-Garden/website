@@ -13,7 +13,7 @@ exports.handler = async function (event) {
 
   const fields = [
     'Common Name', 'Latin Name', 'Type', 'Photo',
-    'Notes', 'Information', 'Native?', 'Annual?', 'Donor',
+    'Notes', 'Information', 'Native?', 'Annual?', 'Donor', 'Status',
   ];
   fields.forEach(f => params.append('fields[]', f));
 
